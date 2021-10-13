@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<modules>
+		<module>api-runner</module>
+		<module>api-domain</module>
+		<module>api-services</module>
+		<module>api-facade</module>
+		<module>api-data-mongodb</module>
+		<module>api-data-hibernate</module>
+		<module>api-file-server</module>
+    </modules>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.6.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>applica.api</groupId>
+	<artifactId>api-root</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>api-root</name>
+	<description>Api</description>
+	<packaging>pom</packaging>
+	<url>http://www.applica.guru</url>
+
+	<properties>
+		<applica.framework.version>2.3.1</applica.framework.version>
+		<java.version>12</java.version>
+	</properties>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>12</source>
+					<target>12</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

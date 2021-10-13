@@ -1,0 +1,30 @@
+@import "variables.scss";
+@import "framework.scss";
+
+
+.m-r-10 {
+  margin-right: 10px
+}
+
+.m-r-5 {
+  margin-right: 5px
+}
+
+.growl-animated.alert-inverse {
+  box-shadow: 0 0 5px rgba(51, 51, 51, 0.5);
+}
+
+.alert-inverse {
+  background-color: #333;
+  border-color: transparent;
+  color: #fff;
+  text-align: center;
+}
+
+.close {
+  color: #fff;
+}
+
+.has-error > .help-block {
+  color: #FF3E63;
+}

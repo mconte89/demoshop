@@ -1,0 +1,15 @@
+
+/.storage/
+/.work/
+.idea
+node_modules
+/gen/
+/src/js/node_modules/
+/src/js/package-lock.json
+.DS_Store
+build
+*.iml
+.gradle
+gradle
+gradle/wrapper
+package-lock.json

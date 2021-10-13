@@ -1,0 +1,27 @@
+Gentile <b>${user.name}</b>
+<br/>
+grazie per la Tua registrazione.
+<br/>
+La password temporanea che ti &egrave; stata assegnata &egrave; <b>$password</b>
+<br/>
+
+
+Ti sar&agrave; chiesto di modificarla al primo accesso nel sistema.
+
+<br><br>
+#if($loginUrl)
+Clicca <a href="${loginUrl}">Qui</a> per accedere alla webapp inPonzio oppure incolla il seguente link nella barra degli indirizzi del tuo browser:
+<br/>${loginUrl}
+<br><br>
+#end
+
+
+
+#if($androidUrl || $appleUrl)
+Scarica l'app ufficiale inPonzio per Android su <a href="${androidUrl}">Play Store</a> oppure per iOS su <a href="${appleUrl}">App Store</a>
+<br><br>
+#end
+
+<br/>
+<br/>
+questa mail &egrave; stata generata in automatico, si prega di non rispondere.
