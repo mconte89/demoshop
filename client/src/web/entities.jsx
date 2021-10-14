@@ -274,6 +274,57 @@ const entities = {
                 ]
             }
         },
+	},
+	article: {
+		grid: {
+			title: M("articleList"),
+			subtitle: M("articleListDescription"),
+			quickSearchEnabled: false,
+			canDelete: true,
+			descriptor: {
+				columns: [
+	                {property: "code", header: M("code"), cell: TextCell, sortable: true, searchable: true},
+					{property: "name", header: M("name"), cell: TextCell, sortable: true, searchable: true},
+					{property: "description", header: M("description"), cell: TextCell, sortable: true, searchable: true},
+					{property: "price", header: M("price"), cell: TextCell, sortable: true, searchable: true},
+	            ]
+			}
+		},
+		form: {
+			title: M("articleForm"),
+			subtitle: M("articleFormDescription"),
+			descriptor: {
+				/*
+				areas: [
+					{
+
+					},
+				]
+				*/
+				fields: [
+					{
+						property: "code",
+						label: M("code"),
+						control: Text,
+					},
+					{
+						property: "name",
+						label: M("name"),
+						control: Text,
+					},
+					{
+						property: "description",
+						label: M("description"),
+						control: Text,
+					},
+					{
+						property: "price",
+						label: M("price"),
+						control: Number,
+					},
+				]
+			}
+		},
 	}
 
 }
