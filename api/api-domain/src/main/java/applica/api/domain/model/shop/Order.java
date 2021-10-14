@@ -10,6 +10,7 @@ public class Order extends AEntity {
 
     @ManyToOne
     private Customer customer;
+    private Payment payment;
 
     public List<OrderRow> getRows() {
         return rows;
@@ -26,4 +27,8 @@ public class Order extends AEntity {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public Payment getPayment() {return payment;}
+
+    public void setPayment(Payment payment) {this.payment = payment;}
 }
