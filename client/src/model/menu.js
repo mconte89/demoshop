@@ -32,6 +32,26 @@ export default [
         ]
     },
     {
+        icon: "zmdi zmdi-store",
+        text: M("store"),
+        roles: ["admin"],
+        children: [
+            {
+                icon: "zmdi zmdi-wrench",
+                text: M("products"),
+                href: "/#/entities/product?grid=products",
+                // permissions: ["user:list"]
+            },
+            {
+                icon: "zmdi zmdi-label",
+                text: M("categories"),
+                href: "/#/entities/category?grid=categories",
+                // permissions: ["user:list"]
+            },
+
+        ]
+    },
+    {
         icon: "zmdi zmdi-settings",
         text: M("settings"),
         roles: ["admin"],

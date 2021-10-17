@@ -453,6 +453,19 @@ strings["it"] = {
     typeForSearching: "Inizia a scrivere per cercare",
     searching: "Sto cercando ...",
     registrationDate: "Data registrazione",
+    products: "Prodotti",
+    store: "Negozio",
+    forSale: "In vendita",
+    price: "Prezzo",
+    discount: "Sconto",
+    availableQuantity: "Quantità disponibile",
+    product: "Prodotto",
+    articleFormDescription: "Dettaglio prodotto",
+    articleList: "Lista prodotti",
+    categories: "Categorie",
+    category: "Categoria",
+    categoriesDescription: "Lista categorie",
+    categoriesFormDescription: "Dettaglio categoria",
 }
 
 export function setLanguage(language_) {

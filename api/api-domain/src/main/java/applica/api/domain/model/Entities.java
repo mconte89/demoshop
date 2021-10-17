@@ -16,6 +16,10 @@ public class Entities {
     public static final String GEO_CITY = "geoCity";
     public static final String GEO_PROVINCE = "geoProvince";
     public static final String MAIL_LOG = "mailLog";
+    public static final String PRODUCT = "product";
+    public static final String CATEGORY = "category";
+    public static final String CUSTOMER = "customer";
+    public static final String ORDER = "order";
 
 
     public static String [] getPermittedEntitiesByRole(String permission) {

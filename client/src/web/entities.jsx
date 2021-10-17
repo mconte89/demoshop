@@ -1,15 +1,16 @@
 import React from "react";
 import {CheckCell, DateCell, MultiTextCell, TextCell} from "./components/grids";
-import {Autocomplete, DateTime, Image, Mail, PasswordText, ReadOnlyText, Select, Text, YesNo, Check} from "./components/forms";
-import {EntitiesLookupContainer, ValuesLookupContainer, ValuesSelectContainer} from "./components/containers";
+import {Autocomplete, DateTime, Image, Mail, PasswordText, ReadOnlyText, Select, Text, YesNo, Check, Number} from "./components/forms";
+import {EntitiesMultiCheckContainer, EntitiesLookupContainer, ValuesLookupContainer, ValuesSelectContainer, EntitiesSelectContainer} from "./components/containers";
 import M, {M_Multiple} from "../strings";
 import {getLoggedUser, hasPermission} from "../api/session";
 import {resetUserPassword} from "../actions/account";
 import * as ui from "./utils/ui";
 import {logout} from "../actions/session";
-import {activeSearchForm} from "./screens/entities/commonFields";
+import {activeSearchForm, entitySelectContainerField} from "./screens/entities/commonFields";
 import { SEARCH_FORM_DATE_DESCRIPTOR } from "../model/searchForms";
 import * as datasource from "../utils/datasource";
+import {check, sanitize} from "../libs/validator";
 
 const entities = {
 	user: {
@@ -274,6 +275,122 @@ const entities = {
                 ]
             }
         },
+	},
+	product: {
+		grid: {
+			title: M("articleList"),
+			subtitle: M("articleListDescription"),
+			quickSearchEnabled: false,
+			canDelete: true,
+			descriptor: {
+				columns: [
+	                {property: "code", header: M("code"), cell: TextCell, sortable: true, searchable: true},
+					{property: "name", header: M("name"), cell: TextCell, sortable: true, searchable: true},
+					{property: "description", header: M("description"), cell: TextCell, sortable: true, searchable: true},
+					{property: "price", header: M("price"), cell: TextCell, sortable: true, searchable: true},
+	            ]
+			}
+		},
+		form: {
+			title: M("articleForm"),
+			subtitle: M("articleFormDescription"),
+			descriptor: {
+				fields: [
+					{
+						property: "code",
+						label: M("code"),
+						control: Text,
+						validator: value => check(value).notEmpty(),
+                        size: "col-sm-6",
+					},
+					{
+						property: "name",
+						label: M("name"),
+						control: Text,
+						validator: value => check(value).notEmpty(),
+						size: "col-sm-6",
+					},
+					{
+						property: "description",
+						label: M("description"),
+						control: Text,
+					},
+					{
+						property: "price",
+						label: M("price"),
+						control: Number,
+						validator: value => check(value).notEmpty(),
+						size: "col-sm-3",
+					},
+					{
+						property: "discount",
+						label: M("discount"),
+						control: Number,
+						validator: value => check(value).notEmpty(),
+						size: "col-sm-3",
+					},
+					{
+						property: "availableQuantity",
+						label: M("availableQuantity"),
+						control: Number,
+						size: "col-sm-3",
+						validator: value => check(value).notEmpty().isNumeric(),
+					},
+					{
+						property: "forSale",
+						label: M("forSale"),
+						control: YesNo,
+						size: "col-sm-3",
+					},
+					{
+						property: "categories",
+						label: M("categories"),
+						control: EntitiesSelectContainer,
+						props: {
+							id: "product-categories",
+							entity: "category",
+							searchEnabled: true,
+							allowNull: true,
+							multiple: true,
+						}
+					}				]
+			}
+		},
+	},
+	category: {
+		grid: {
+			title: M("categories"),
+			subtitle: M("categoriesDescription"),
+			quickSearchEnabled: true,
+			canDelete: true,
+			descriptor:{
+				columns: [
+					{property: "name", header: M("name"), cell: TextCell, sortable: true, searchable: true},
+					{property: "description", header: M("description"), cell: TextCell, sortable: true, searchable: true},
+				]
+			}
+		},
+		form: {
+			title: M("category"),
+			subtitle: M("categoriesFormDescription"),
+			quickSearchEnabled: true,
+			descriptor:{
+				fields: [
+					{
+						property: "name",
+						label: M("name"),
+						control: Text,
+						validator: value => check(value).notEmpty(),
+					},
+					{
+						property: "description",
+						label: M("description"),
+						control: Text,
+					},
+				]
+			}
+		}
+
 	}
 
 }
